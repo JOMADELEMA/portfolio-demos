@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useStateContext } from "./contexts/ContextProvider";
 
 function App() {
+  const { currentMode, toggleMode } = useStateContext();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className={currentMode==="Dark"?"dark":""}>
+      <h1 className="text-3xl dark:bg-black bg-green-200 text-black dark:text-white">{currentMode}</h1>
+      <button onClick={()=>toggleMode()}> Click</button>
     </div>
+    </>
   );
 }
 
